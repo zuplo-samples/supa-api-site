@@ -2,22 +2,28 @@
 
 This is a demo to help you start monetizing an API quickly using:
 
-- Supabase as the database and authentication provider
-- OpenAI for spicing your API with AI
-- Zuplo for API auth, rate limiting, and monetization
-- Stripe for payments and subscription management
+- [Supabase](https://supabase.com) as the database and authentication provider
+- [OpenAI](https://openai.com) for spicing your API with AI
+- [Zuplo](https://zuplo.com) for API auth, rate limiting, and monetization
+- [Stripe](https://stripe.com) for payments and subscription management
 
 This repo contains a dashboard that allows users to sign up, pay, and manage their subscription to any API.
+
+## Demo 
+
+- https://supaweek.zuplosite.com
+
+![SupaAPI Demo](./assets/supaapi-demo.png)
 
 ## Getting started
 
 ### Step 1 - Create a Stripe account and product
 
-1. Create a Stripe account
+**1. Create a Stripe account**
 
 You'll need a Stripe account to accept payments. You can create one [here](https://dashboard.stripe.com/register).
 
-2. Create a metered product in Stripe
+**2. Create a metered product in Stripe**
 
 To enable metered billing so that you can charge users for their API usage, you'll need to create a metered product in Stripe.
 
@@ -27,7 +33,7 @@ Now create a product with the following details:
 
 ![Stripe Add Product Step 2](./assets/stripe-add-product-step-2.png)
 
-3. Create a Pricing Table to embed on the web-app
+**3. Create a Pricing Table to embed on the web-app**
 
 Go back to _Product_ menu and click on the _Pricing tables_.
 
@@ -35,7 +41,7 @@ Fill in the details as shown below:
 
 ![](./assets/stripe-add-pricing-table-2.png)
 
-4. Add the Pricing table to the dashboard
+**4. Add the Pricing table to the dashboard**
 
 Copy the Pricing Table code which will be used in the web app:
 
