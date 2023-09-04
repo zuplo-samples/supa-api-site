@@ -97,7 +97,7 @@ You will be required to add the following environment variables:
 
 1. `NEXT_PUBLIC_ZUPLO_API_URL`: in Zuplo, go to the **_Settings > Project Information_** tab and copy the **_URL_**.
 
-1. `ZUPLO_BUCKET_URL`: from the same page, copy the **_API Key Bucket URLL_**.
+1. `ZUPLO_BUCKET_URL`: from the same page, copy the **_API Key Bucket URL_**.
 
 1. `ZUPLO_API_KEY`: in Zuplo, go to the **_Settings > Zuplo API Keys_** tab and copy the available key.
 
