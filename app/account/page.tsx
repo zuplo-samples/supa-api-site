@@ -1,15 +1,11 @@
 import { redirect } from "next/navigation";
-import { getSession, getUserDetails } from "../supabase-server";
+import { getSession } from "../supabase-server";
 import { getSubscription } from "../stripe";
 import Link from "next/link";
+import { getOrCreateZuploConsumer } from "../zuplo";
 
 export default async function AccountPage() {
-  const [session, userDetails] = await Promise.all([
-    getSession(),
-    getUserDetails(),
-  ]);
-
-  const user = session?.user;
+  const session = await getSession();
 
   if (!session || !session.user.email) {
     return redirect("/signin");
@@ -22,6 +18,10 @@ export default async function AccountPage() {
   if (subscription === null) {
     return redirect("/pricing");
   }
+
+  await getOrCreateZuploConsumer({
+    email: session.user.email,
+  });
 
   return (
     <div className="flex flex-col  items-center justify-center gap-10">
