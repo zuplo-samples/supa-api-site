@@ -4,7 +4,7 @@ import { getSubscription } from "../stripe";
 import Link from "next/link";
 import { getOrCreateZuploConsumer } from "../zuplo";
 
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";
 
 export default async function AccountPage() {
   const session = await getSession();
@@ -28,7 +28,10 @@ export default async function AccountPage() {
   return (
     <div className="flex flex-col  items-center justify-center gap-10">
       <h1 className="text-center text-5xl">Start using the API</h1>
-
+      <p>
+        Number of request for the current billing period:{" "}
+        <span className="font-bold">{subscription.usage?.total_usage}</span> requests
+      </p>
       <Link
         className="max-w-xs rounded-md bg-black p-4 text-xl text-white hover:bg-gray-800"
         href={process.env.NEXT_PUBLIC_ZUPLO_API_URL + "/docs"}

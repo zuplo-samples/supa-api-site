@@ -24,7 +24,17 @@ export const getSubscription = async ({ email }: { email: string }) => {
       return null;
     }
 
-    return subscription.data[0];
+    const usage = await stripe.subscriptionItems.listUsageRecordSummaries(
+      subscription.data[0].items.data[0].id,
+      {
+        limit: 1,
+      },
+    );
+
+    return {
+      subscription: subscription.data[0],
+      usage: usage.data.length > 0 ? usage.data[0] : null,
+    };
   } catch (err) {
     console.log(err);
     return null;
