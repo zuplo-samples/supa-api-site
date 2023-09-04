@@ -27,7 +27,7 @@ You'll need a Stripe account to accept payments. You can create one [here](https
 
 To enable metered billing so that you can charge users for their API usage, you'll need to create a metered product in Stripe.
 
-Go to\* **_Products_** and click **_Add a product_**.
+Go to **_Products_** and click **_Add a product_**.
 
 Now create a product with the following details:
 
