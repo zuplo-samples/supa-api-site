@@ -3,6 +3,8 @@ import { getSession } from "../supabase-server";
 import AuthUI from "./AuthUI";
 import { getSubscription } from "../stripe";
 
+export const dynamic = 'force-dynamic'
+
 export default async function SignIn() {
   const session = await getSession();
 

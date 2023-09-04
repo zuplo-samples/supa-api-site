@@ -4,6 +4,8 @@ import { getSubscription } from "../stripe";
 import Link from "next/link";
 import { getOrCreateZuploConsumer } from "../zuplo";
 
+export const dynamic = 'force-dynamic'
+
 export default async function AccountPage() {
   const session = await getSession();
 

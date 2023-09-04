@@ -19,15 +19,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <SupabaseProvider>
-        <body className={`h-full ${inter.className}`}>
-          <div className="container mx-auto flex h-full max-w-5xl flex-col justify-between text-base">
-            <Header />
+      <body className={`h-full ${inter.className}`}>
+        <div className="container mx-auto flex h-full max-w-5xl flex-col justify-between text-base">
+          <Header />
+          <SupabaseProvider>
             <div className="flex flex-col justify-center ">{children}</div>
-            <Footer />
-          </div>
-        </body>
-      </SupabaseProvider>
+          </SupabaseProvider>
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }

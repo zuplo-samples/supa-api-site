@@ -3,6 +3,8 @@ import { getSession } from "./supabase-server";
 import { redirect } from "next/navigation";
 import { getSubscription } from "./stripe";
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home() {
   const session = await getSession();
 
