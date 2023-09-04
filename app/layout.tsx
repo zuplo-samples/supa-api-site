@@ -21,11 +21,11 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className={`h-full ${inter.className}`}>
         <div className="container mx-auto flex h-full max-w-5xl flex-col justify-between text-base">
-          <Header />
           <SupabaseProvider>
+            <Header />
             <div className="flex flex-col justify-center ">{children}</div>
+            <Footer />
           </SupabaseProvider>
-          <Footer />
         </div>
       </body>
     </html>
