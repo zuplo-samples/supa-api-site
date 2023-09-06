@@ -47,6 +47,7 @@ const createAPIKeyConsumer = async ({ email }: { email: string }) => {
     managers: [email],
     metadata: {
       stripeCustomerId: stripeCustomerData.id,
+      orgId: 1,
     },
     tags: {
       email,
