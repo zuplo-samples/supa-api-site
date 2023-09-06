@@ -35,6 +35,7 @@ export default async function AccountPage() {
       <Link
         className="max-w-xs rounded-md bg-black p-4 text-xl text-white hover:bg-gray-800"
         href={process.env.NEXT_PUBLIC_ZUPLO_API_URL + "/docs"}
+        target="_blank"
       >
         Go to API docs
       </Link>
