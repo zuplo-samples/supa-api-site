@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     });
 
     if (!ssoResponse.ok) {
-      console.log(await ssoResponse.text());
+      console.error(await ssoResponse.text());
       return NextResponse.redirect(
         `${requestUrl.origin}/login?error=Could not authenticate user`,
         {
