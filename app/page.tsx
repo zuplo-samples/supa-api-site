@@ -28,7 +28,7 @@ export default async function Home() {
         Where APIs start making money
       </h1>
       <button className="max-w-xs p-4 text-xl bg-black hover:bg-gray-800 rounded-md text-white">
-        <Link href="/signin">Sign in to start</Link>
+        <Link href="/login">Sign in to start</Link>
       </button>
     </main>
   );

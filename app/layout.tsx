@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import SupabaseProvider from "./supabase-provider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -19,15 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <SupabaseProvider>
-        <body className={`h-full ${inter.className}`}>
-          <div className="container mx-auto flex h-full max-w-5xl flex-col justify-between text-base">
-            <Header />
-            <div className="flex flex-col justify-center ">{children}</div>
-            <Footer />
-          </div>
-        </body>
-      </SupabaseProvider>
+      <body className={`h-full ${inter.className}`}>
+        <div className="container mx-auto flex h-full max-w-5xl flex-col justify-between text-base">
+          <Header />
+          <div className="flex flex-col justify-center ">{children}</div>
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }

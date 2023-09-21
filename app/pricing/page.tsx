@@ -9,7 +9,7 @@ export default async function PricingPage() {
   const stripeProducts = await getStripeProducts();
 
   if (!session || !session.user.email) {
-    redirect("/signin");
+    redirect("/login");
   }
 
   const subscription = await getSubscription({

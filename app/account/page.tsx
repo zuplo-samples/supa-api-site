@@ -10,7 +10,7 @@ export default async function AccountPage() {
   const session = await getSession();
 
   if (!session || !session.user.email) {
-    return redirect("/signin");
+    return redirect("/login");
   }
 
   const subscription = await getSubscription({

@@ -1,6 +1,5 @@
 import { getSession } from "@/app/supabase-server";
 import Link from "next/link";
-import SignOutButton from "./SingoutButton";
 
 export default async function Header() {
   const session = await getSession();
@@ -13,9 +12,11 @@ export default async function Header() {
         </h1>
       </Link>
       {session ? (
-        <SignOutButton />
+        <Link href="/auth/sign-out" className="text-lg font-semibold">
+          Sign out
+        </Link>
       ) : (
-        <Link href="/signin" className="text-lg font-semibold">
+        <Link href="/login" className="text-lg font-semibold">
           Sign in
         </Link>
       )}
