@@ -37,8 +37,8 @@ export async function GET(request: Request) {
         headers: {
           "content-type": "application/json",
           authorization: `Bearer ${process.env.ZUPLO_API_KEY}`,
-          "dev-portal-id": "supabase-auth-docs-main-acc9dab",
-          "dev-portal-host": "supabase-auth-docs-main-acc9dab.d2.zuplo.dev",
+          "dev-portal-id": "supaweek-day-5-main-8a19a50",
+          "dev-portal-host": "supaweek-day-5-main-8a19a50.d2.zuplo.dev",
         },
         body: JSON.stringify({
           email: user.email,
@@ -50,6 +50,7 @@ export async function GET(request: Request) {
       });
 
       if (!ssoResponse.ok) {
+        console.log(await ssoResponse.text());
         return NextResponse.redirect(
           `${requestUrl.origin}/login?error=Could not authenticate user`,
           {
