@@ -38,8 +38,8 @@ export async function POST(request: Request) {
       headers: {
         "content-type": "application/json",
         Authorization: `Bearer ${process.env.ZUPLO_API_KEY}`,
-        "dev-portal-id": "supaweek-day-5-main-8a19a50",
-        "dev-portal-host": "supaweek-day-5-main-8a19a50.d2.zuplo.dev",
+        "dev-portal-id": "supaweek-day-5-main-884dd46",
+        "dev-portal-host": "supaweek-day-5-main-884dd46.d2.zuplo.dev",
       },
       body: JSON.stringify({
         email: user.email,
