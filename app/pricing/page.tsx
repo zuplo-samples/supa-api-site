@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { getStripeProducts, getSubscription } from "../stripe";
 import { getSession } from "../supabase-server";
+import Messages from "../login/messages";
 
 export default async function PricingPage() {
   const session = await getSession();
@@ -27,22 +28,28 @@ export default async function PricingPage() {
     <div className="flex flex-col justify-between gap-10">
       <h1 className="text-center text-5xl">Choose a subscription plan</h1>
       <div className="flex justify-center gap-x-10">
+        <Messages />
         <form>
           {stripeProducts.map((product) => {
             return (
-              <div className="flex flex-col max-w-xs rounded-xl p-4 border border-gray-500 shadow-lg space-y-3" key={product.id}>
+              <div
+                className="flex max-w-xs flex-col space-y-3 rounded-xl border border-gray-500 p-4 shadow-lg"
+                key={product.id}
+              >
                 <span className="text-xl">{product.name}</span>
-                <span className="text-sm text-gray-500 w-2/3">{product.description}</span>
+                <span className="w-2/3 text-sm text-gray-500">
+                  {product.description}
+                </span>
                 <div className="flex flex-row space-x-2">
                   <span className="text-2xl">
-                    {product.currency.toUpperCase()}
-                    {" "}
-                    {product.price}
+                    {product.currency.toUpperCase()} {product.price}
                   </span>
-                  <span>per request / <br/> per month</span>
+                  <span>
+                    per request / <br /> per month
+                  </span>
                 </div>
                 <button
-                  className="p-2 mt-2 text-xl bg-black hover:bg-gray-800 rounded-md text-white"
+                  className="mt-2 rounded-md bg-black p-2 text-xl text-white hover:bg-gray-800"
                   formAction={`/api/checkout?priceId=${product.priceId}`}
                   formMethod="POST"
                 >
