@@ -28,6 +28,9 @@ export const getOrCreateZuploConsumer = async ({
   return responseJSON;
 };
 
+// Uses the Dev API of Zuplo (https://dev.zuplo.com) to create a new API key consumer.
+// We will add the email as a manager of the consumer and add the Stripe customer ID
+// as metadata to key.
 const createAPIKeyConsumer = async ({ email }: { email: string }) => {
   const stripeCustomer = await stripe.customers.list({
     email,
@@ -46,6 +49,7 @@ const createAPIKeyConsumer = async ({ email }: { email: string }) => {
     name: keyName,
     managers: [email],
     metadata: {
+      // This will be used by the your Zup API to retrieve the Stripe customer ID
       stripeCustomerId: stripeCustomerData.id,
       orgId: 1,
     },
