@@ -50,7 +50,7 @@ export default async function PricingPage() {
                 </div>
                 <button
                   className="mt-2 rounded-md bg-black p-2 text-xl text-white hover:bg-gray-800"
-                  formAction={`/api/checkout?priceId=${product.priceId}`}
+                  formAction={`/checkout?priceId=${product.priceId}`}
                   formMethod="POST"
                 >
                   Subscribe

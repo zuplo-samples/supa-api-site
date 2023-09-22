@@ -12,7 +12,7 @@ export async function POST(request: Request) {
   const supabase = createRouteHandlerClient({ cookies });
 
   const sessionCreateUrl = requestUrl.searchParams.get("session-create-url");
-  const redirectUrl = new URL(`${requestUrl.origin}/api/auth/callback`);
+  const redirectUrl = new URL(`${requestUrl.origin}/auth/callback`);
   if (sessionCreateUrl) {
     // This will send the session-create-url as a query parameter to your
     // /auth/callback endpoint. We will use this in the next step
