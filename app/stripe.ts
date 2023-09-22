@@ -4,6 +4,32 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
   apiVersion: "2023-08-16",
 });
 
+export const createOrGetCustomer = async ({
+  email,
+}: {
+  email: string;
+}): Promise<Stripe.Customer | null> => {
+  try {
+    const existingCustomer = await stripe.customers.list({
+      limit: 1,
+      email,
+    });
+
+    if (existingCustomer.data.length > 0) {
+      return existingCustomer.data[0];
+    }
+
+    const newCustomer = await stripe.customers.create({
+      email,
+    });
+
+    return newCustomer;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+};
+
 export const getSubscription = async ({ email }: { email: string }) => {
   try {
     const customer = await stripe.customers.list({

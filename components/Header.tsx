@@ -12,7 +12,7 @@ export default async function Header() {
         </h1>
       </Link>
       {session ? (
-        <Link href="/auth/sign-out" className="text-lg font-semibold">
+        <Link href="/api/auth/sign-out" className="text-lg font-semibold">
           Sign out
         </Link>
       ) : (

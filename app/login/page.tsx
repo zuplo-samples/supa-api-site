@@ -9,7 +9,7 @@ export default function Login({
     <div className="m-auto flex w-80 max-w-lg flex-col justify-center p-3">
       <form
         className="flex w-full flex-1 flex-col justify-center gap-2 text-foreground"
-        action={`/auth/sign-in${
+        action={`/api/auth/sign-in${
           typeof searchParams?.["session-create-url"] === "string"
             ? `?session-create-url=${encodeURIComponent(
                 searchParams["session-create-url"],
@@ -41,7 +41,7 @@ export default function Login({
           Sign In
         </button>
         <button
-          formAction={`/auth/sign-up${
+          formAction={`/api/auth/sign-up${
             typeof searchParams?.["session-create-url"] === "string"
               ? `?session-create-url=${encodeURIComponent(
                   searchParams["session-create-url"],
