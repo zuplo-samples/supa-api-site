@@ -35,7 +35,7 @@ export default function Footer() {
           </svg>
         </Link>
         <Link
-          href="https://github.com/zuplo-samples/supaapi-site"
+          href="https://github.com/zuplo-samples/supa-api-site"
           className="group"
           aria-label="GitHub"
         >

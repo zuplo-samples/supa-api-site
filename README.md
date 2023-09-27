@@ -11,7 +11,7 @@ This repo contains a dashboard that allows users to sign up, pay, and manage the
 
 ## Demo 
 
-- https://supaapi.zuplosite.com
+- https://supa-api.zuplosite.com
 
 ![SupaAPI Demo](./assets/supaapi-demo.png)
 
