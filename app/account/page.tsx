@@ -3,6 +3,7 @@ import { getSession } from "../supabase-server";
 import { getSubscription } from "../stripe";
 import Link from "next/link";
 import { getOrCreateZuploConsumer } from "../zuplo";
+import { getRequiredEnvVar } from "../env";
 
 export default async function AccountPage() {
   const session = await getSession();
@@ -32,7 +33,7 @@ export default async function AccountPage() {
       </p>
       <Link
         className="max-w-xs rounded-md bg-black p-4 text-xl text-white hover:bg-gray-800"
-        href={process.env.NEXT_PUBLIC_ZUPLO_API_URL + "/docs"}
+        href={getRequiredEnvVar("NEXT_PUBLIC_ZUPLO_API_URL") + "/docs"}
         target="_blank"
       >
         Go to API docs

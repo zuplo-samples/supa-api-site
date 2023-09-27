@@ -1,3 +1,4 @@
+import { getRequiredEnvVar } from "./env";
 import { stripe } from "./stripe";
 
 export const getOrCreateZuploConsumer = async ({
@@ -7,10 +8,10 @@ export const getOrCreateZuploConsumer = async ({
 }) => {
   const keyPrefix = email.replace(/[@.]/g, "-");
   const response = await fetch(
-    `${process.env.ZUPLO_BUCKET_URL}/consumers/${keyPrefix}`,
+    `${getRequiredEnvVar("ZUPLO_BUCKET_URL")}/consumers/${keyPrefix}`,
     {
       headers: {
-        authorization: `Bearer ${process.env.ZUPLO_API_KEY}`,
+        authorization: `Bearer ${getRequiredEnvVar("ZUPLO_API_KEY")}`,
       },
     },
   );
@@ -59,11 +60,11 @@ const createAPIKeyConsumer = async ({ email }: { email: string }) => {
   };
 
   const response = await fetch(
-    `${process.env.ZUPLO_BUCKET_URL}/consumers/?with-api-key=true`,
+    `${getRequiredEnvVar("ZUPLO_BUCKET_URL")}/consumers/?with-api-key=true`,
     {
       method: "POST",
       headers: {
-        authorization: `Bearer ${process.env.ZUPLO_API_KEY}`,
+        authorization: `Bearer ${getRequiredEnvVar("ZUPLO_API_KEY")}`,
         "content-type": "application/json",
       },
       body: JSON.stringify(body),

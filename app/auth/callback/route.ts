@@ -1,3 +1,4 @@
+import { getRequiredEnvVar } from "@/app/env";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
@@ -36,7 +37,7 @@ export async function GET(request: Request) {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          authorization: `Bearer ${process.env.ZUPLO_API_KEY}`,
+          authorization: `Bearer ${getRequiredEnvVar("ZUPLO_API_KEY")}`,
         },
         body: JSON.stringify({
           email: user.email,
