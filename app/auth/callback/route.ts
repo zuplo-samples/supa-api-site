@@ -37,8 +37,6 @@ export async function GET(request: Request) {
         headers: {
           "content-type": "application/json",
           authorization: `Bearer ${process.env.ZUPLO_API_KEY}`,
-          "dev-portal-id": "supaweek-day-5-main-884dd46",
-          "dev-portal-host": "supaweek-day-5-main-884dd46.d2.zuplo.dev",
         },
         body: JSON.stringify({
           email: user.email,

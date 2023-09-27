@@ -17,8 +17,9 @@ export async function POST(request: Request) {
     password,
   });
   if (error) {
+    console.error("sign in supabase error: ", error);
     return NextResponse.redirect(
-      `${requestUrl.origin}/login?error=Could not authenticate user`,
+      `${requestUrl.origin}/login?error=Could not authenticate your account`,
       {
         // a 301 status is required to redirect from a POST to a GET route
         status: 301,
@@ -38,8 +39,6 @@ export async function POST(request: Request) {
       headers: {
         "content-type": "application/json",
         Authorization: `Bearer ${process.env.ZUPLO_API_KEY}`,
-        "dev-portal-id": "supaweek-day-5-main-884dd46",
-        "dev-portal-host": "supaweek-day-5-main-884dd46.d2.zuplo.dev",
       },
       body: JSON.stringify({
         email: user.email,
@@ -51,7 +50,8 @@ export async function POST(request: Request) {
     });
 
     if (!ssoResponse.ok) {
-      console.error(await ssoResponse.text());
+      console.error(ssoResponse);
+      console.error("ssoResponse: ", await ssoResponse.text());
       return NextResponse.redirect(
         `${requestUrl.origin}/login?error=Could not authenticate user`,
         {
